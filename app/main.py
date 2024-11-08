@@ -8,7 +8,7 @@ class Validator(ABC):
     def __get__(self, instance: int | str, owner: int | str) -> str:
         return getattr(instance, self.protected_name)
 
-    def __set__(self, instance, value: int | str) -> None:
+    def __set__(self, instance: int | str, value: int | str) -> None:
         self.validate(value)
         setattr(instance, self.protected_name, value)
 
